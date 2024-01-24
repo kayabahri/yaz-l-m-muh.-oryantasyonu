@@ -1,0 +1,44 @@
+
+import java.util.Scanner;
+
+
+public class Main
+{
+	public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Alanını hesaplamak istediğiniz şekli seçin:");
+        System.out.println("1. Daire");
+        System.out.println("2. Üçgen");
+        System.out.println("3. Kare");
+        System.out.print("Seçiminizi yapın (1/2/3): ");
+        int secim = scanner.nextInt();
+
+        double alan = 0.0;
+
+        switch (secim) {
+            case 1:
+                System.out.print("Dairenin yarıçapını girin: ");
+                double yaricap = scanner.nextDouble();
+                alan = Math.PI * yaricap * yaricap;
+                break;
+            case 2:
+                System.out.print("Üçgenin taban uzunluğunu girin: ");
+                double tabanUzunlugu = scanner.nextDouble();
+                System.out.print("Üçgenin yüksekliğini girin: ");
+                double yukseklik = scanner.nextDouble();
+                alan = 0.5 * tabanUzunlugu * yukseklik;
+                break;
+            case 3:
+                System.out.print("Karenin kenar uzunluğunu girin: ");
+                double kenarUzunlugu = scanner.nextDouble();
+                alan = kenarUzunlugu * kenarUzunlugu;
+                break;
+            default:
+                System.out.println("Geçersiz seçim!");
+                return;
+        }
+
+        System.out.println("Seçtiğiniz şeklin alanı: " + alan);
+    }
+}

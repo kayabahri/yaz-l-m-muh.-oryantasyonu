@@ -1,0 +1,45 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Kaç adet sayı gireceksiniz? ");
+        int sayiAdedi = scanner.nextInt();
+
+        int[] sayilar = new int[sayiAdedi];
+
+        for (int i = 0; i < sayiAdedi; i++) {
+            System.out.print("Sayı " + (i + 1) + ": ");
+            sayilar[i] = scanner.nextInt();
+        }
+
+        System.out.println("Sıralama Türünü Seçin:");
+        System.out.println("1. Artan Sıralama");
+        System.out.println("2. Azalan Sıralama");
+        System.out.print("Seçiminizi yapın (1/2): ");
+        int secim = scanner.nextInt();
+
+        if (secim == 1) {
+            Arrays.sort(sayilar); // Artan sıralama
+        } else if (secim == 2) {
+            Arrays.sort(sayilar); // Azalan sıralama
+            for (int i = 0; i < sayilar.length / 2; i++) {
+                int temp = sayilar[i];
+                sayilar[i] = sayilar[sayilar.length - 1 - i];
+                sayilar[sayilar.length - 1 - i] = temp;
+            }
+        } else {
+            System.out.println("Geçersiz seçim!");
+            return;
+        }
+
+        System.out.println("Sıralanmış Sayılar:");
+
+        for (int sayi : sayilar) {
+            System.out.print(sayi + " ");
+        }
+    }
+}

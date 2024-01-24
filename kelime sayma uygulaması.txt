@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	 Scanner scanner = new Scanner(System.in);
+        System.out.print("Metni girin: ");
+        
+        if (scanner.hasNextLine()) { // Kullanıcının giriş yapması kontrol ediliyo
+            String metin = scanner.nextLine();
+            String[] kelimeler = metin.split(" ");
+            int kelimeSayisi = kelimeler.length;
+            System.out.println("Kelime sayısı: " + kelimeSayisi);
+        } else {
+            System.out.println("Giriş yapılmadı.");
+        }
+    }
+}

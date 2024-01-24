@@ -1,0 +1,21 @@
+import java.util.Random;
+
+public class Main
+{
+	public static void main(String[] args) {
+      Random random = new Random();
+        int oyuncu1Zar = random.nextInt(6) + 1;
+        int oyuncu2Zar = random.nextInt(6) + 1;
+        
+        System.out.println("Oyuncu 1'in zarı: " + oyuncu1Zar);
+        System.out.println("Oyuncu 2'nin zarı: " + oyuncu2Zar);
+        
+        if (oyuncu1Zar > oyuncu2Zar) {
+            System.out.println("Oyuncu 1 kazandı!");
+        } else if (oyuncu2Zar > oyuncu1Zar) {
+            System.out.println("Oyuncu 2 kazandı!");
+        } else {
+            System.out.println("Berabere!");
+        }
+    }
+}

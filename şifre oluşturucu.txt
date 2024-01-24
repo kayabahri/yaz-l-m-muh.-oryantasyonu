@@ -1,0 +1,34 @@
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Şifre uzunluğunu girin: ");
+        int uzunluk = scanner.nextInt();
+
+        String rastgeleSifre = generateRandomPassword(uzunluk);
+        System.out.println("Oluşturulan Şifre: " + rastgeleSifre);
+    }
+
+    public static String generateRandomPassword(int uzunluk) {
+        
+        String karakterler = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+";
+
+        //  rastgele sayı üreteci oluştur
+        SecureRandom random = new SecureRandom();
+
+        StringBuilder sifre = new StringBuilder();
+
+        // Belirtilen uzunlukta rastgele şifre oluştur
+        for (int i = 0; i < uzunluk; i++) {
+            int rastgeleIndex = random.nextInt(karakterler.length());
+            char rastgeleKarakter = karakterler.charAt(rastgeleIndex);
+            sifre.append(rastgeleKarakter);
+        }
+
+        return sifre.toString();
+    }
+}

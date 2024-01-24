@@ -1,0 +1,45 @@
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class Main
+{
+	public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        
+        System.out.println("Taş-Kağıt-Makas oyununa hoş geldiniz!");
+        System.out.print("Seçiminizi yapın (taş, kağıt, makas): ");
+        String oyuncuSecimi = scanner.nextLine().toLowerCase();
+        
+        if (oyuncuSecimi.equals("taş") || oyuncuSecimi.equals("kağıt") || oyuncuSecimi.equals("makas")) {
+            int rastgeleSayi = random.nextInt(3); // 0, 1 veya 2 üretir.
+            String bilgisayarSecimi = "";
+            switch (rastgeleSayi) {
+                case 0:
+                    bilgisayarSecimi = "taş";
+                    break;
+                case 1:
+                    bilgisayarSecimi = "kağıt";
+                    break;
+                case 2:
+                    bilgisayarSecimi = "makas";
+                    break;
+            }
+            
+            System.out.println("Bilgisayarın seçimi: " + bilgisayarSecimi);
+            
+            if (oyuncuSecimi.equals(bilgisayarSecimi)) {
+                System.out.println("Berabere!");
+            } else if ((oyuncuSecimi.equals("taş") && bilgisayarSecimi.equals("makas")) ||
+                       (oyuncuSecimi.equals("kağıt") && bilgisayarSecimi.equals("taş")) ||
+                       (oyuncuSecimi.equals("makas") && bilgisayarSecimi.equals("kağıt"))) {
+                System.out.println("Kazandınız!");
+            } else {
+                System.out.println("Kaybettiniz!");
+            }
+        } else {
+            System.out.println("Geçersiz seçim. Lütfen 'taş', 'kağıt' veya 'makas' seçin.");
+        }
+    }
+}

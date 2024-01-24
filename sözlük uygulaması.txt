@@ -1,0 +1,33 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+   Map<String, String> sozluk = new HashMap<>();
+        sozluk.put("ev", "Bir insanın yaşadığı yer.");
+        sozluk.put("araba", "Taşıt aracı.");
+        sozluk.put("kitap", "Yazılı eser.");
+        sozluk.put("telefon", "İletişim cihazı.");
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Aramak istediğiniz kelimeyi girin (Çıkmak için 'q' tuşuna basın): ");
+            String kelime = scanner.nextLine().toLowerCase();
+
+            if (kelime.equals("q")) {
+                System.out.println("Sözlük uygulaması kapatılıyor.");
+                break;
+            }
+
+            if (sozluk.containsKey(kelime)) {
+                String anlam = sozluk.get(kelime);
+                System.out.println(kelime + " anlamı: " + anlam);
+            } else {
+                System.out.println("Kelime bulunamadı.");
+            }
+        }
+    }
+}
